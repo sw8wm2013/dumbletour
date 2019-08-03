@@ -5,7 +5,7 @@ import App from './App.jsx';
 import store from './store';
 
 render (
-    <Provider store = {store}>
+    <Provider store ={store}>
         <App />
     </Provider>,
     document.getElementById('root')

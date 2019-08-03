@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieSession({
   maxAge: 24 * 60 * 60 * 1000,
   keys: [authKeys.session.cookieKey],
-}))
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -41,7 +41,7 @@ app.use('/profile', profileRoutes);
 // Index Page Route Handler
 app.get('/', (req, res) => {
   res.render('./../client/auth-test.ejs');
-})
+});
 
 
 
@@ -65,4 +65,4 @@ app.listen(PORT, () => {
   //     // console.log('guns from mongo atlas', guns);
   // })
   console.log(`Your server is listening on port: ${PORT}...          GO TEAM DUMBLETOUR!`);
-})
+});

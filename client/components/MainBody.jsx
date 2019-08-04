@@ -30,7 +30,6 @@ class MainBody extends Component{
                               www={r.www}
                               ig={r.ig}/>;
         });
-
         return(
         <div>
           <Fragment>

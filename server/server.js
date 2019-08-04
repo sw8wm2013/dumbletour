@@ -45,7 +45,7 @@ app.use('/profile', profileRoutes);
 // });
 
 
-// TEMPORARY SEARCH ROUTE
+// TEMPORARY ROUTES START
 app.post('/api/search', (req, res) => {
   const stubResults = [];
   const resultTemplate = {
@@ -54,15 +54,54 @@ app.post('/api/search', (req, res) => {
     www: 'www.tourists-are-us.com',
     ig: '#livelaughlove',
   };
-  for (let i = 20; i > 0; i--) {
+  for (let i = 20; i > 0; i -= 1) {
     const name = `Lorem Ipssum ${i}`;
-    stubResults.push({ ...resultTemplate, name });
+    const id = i;
+    stubResults.push({ ...resultTemplate, name, id });
   }
-
   res.status(200);
   res.setHeader('Content-type', 'application/json');
   res.json(stubResults);
 });
+
+app.put('/api/itinerary/add', (req, res) => {
+  const { id, user } = req.query;
+  console.log(`adding id ${id} to ${user}'s itineray`);
+  res.status(200);
+  res.end();
+});
+
+app.put('/api/itinerary/remove', (req, res) => {
+  const { id, user } = req.query;
+  console.log(`removing id ${id} from ${user}'s itineray`);
+  res.status(200);
+  res.end();
+  res.status(200);
+  res.end();
+});
+
+app.get('/api/itinerary/get', (req, res) => {
+  const { user } = req.query;
+  const stubResults = [];
+  const resultTemplate = {
+    imgUrl: 'http://via.placeholder.com/300x300',
+    price: '50.99',
+    www: 'www.tourists-are-us.com',
+    ig: '#livelaughlove',
+  };
+  for (let i = 1000; i < 1003; i += 1) {
+    const name = `Cart Lorem Ipssum ${i}`;
+    const id = i;
+    stubResults.push({ ...resultTemplate, name, id });
+  }
+  console.log(`returning cart for user ${user}`);
+  res.status(200);
+  res.setHeader('Content-type', 'application/json');
+  res.json(stubResults);
+  res.status(200);
+  res.end();
+});
+// TEMPORARY ROUTES END
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'));

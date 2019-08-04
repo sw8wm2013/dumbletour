@@ -23,7 +23,7 @@ class NavOptions extends Component{
     render(){
         return(
             <Fragment>
-            <Register startRegistration={this.props.startRegistration} completeRegistration={this.props.completeRegistration}/>
+            {/* <Register startRegistration={this.props.startRegistration} completeRegistration={this.props.completeRegistration}/> */}
             {/* <Login/>
             <Itinerary/>
             <Cart/> */}
@@ -31,7 +31,5 @@ class NavOptions extends Component{
         )
     }
  }
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavOptions);

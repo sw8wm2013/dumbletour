@@ -28,6 +28,7 @@ export const searchResults = results => ({
   payload: results,
 });
 
+// thunk that handles search request
 export const submitSearch = () => (dispatch, getState) => {
   const {
     location, latitude, longitude, arrivalDate, departureDate,

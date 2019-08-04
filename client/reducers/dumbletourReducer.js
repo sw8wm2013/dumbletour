@@ -62,9 +62,11 @@ const dumbletourReducer = (state = initialState, action) => {
     }
 
     case types.PROCESS_SEARCH_RESULTS: {
+      const searchBoxIsOpen = false;
       return {
         ...state,
         searchResults: [...action.payload],
+        searchBoxIsOpen,
       };
     }
 

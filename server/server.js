@@ -47,10 +47,21 @@ app.use('/profile', profileRoutes);
 
 // TEMPORARY SEARCH ROUTE
 app.post('/api/search', (req, res) => {
-  console.log(req.body);
+  const stubResults = [];
+  const resultTemplate = {
+    imgUrl: 'http://via.placeholder.com/300x300',
+    price: '50.99',
+    www: 'www.tourists-are-us.com',
+    ig: '#livelaughlove',
+  };
+  for (let i = 20; i > 0; i--) {
+    const name = `Lorem Ipssum ${i}`;
+    stubResults.push({ ...resultTemplate, name });
+  }
+
   res.status(200);
   res.setHeader('Content-type', 'application/json');
-  res.json([{ name: 'museum of redux' }, { name: 'jake tells jokes' }, { name: 'lion king walking tour' }]);
+  res.json(stubResults);
 });
 
 app.get('/', (req, res) => {

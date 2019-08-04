@@ -2,8 +2,6 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/actions.js';
 
-
-
 const mapStateToProps = (store) => ({
     searchBoxIsOpen: store.dumbletour.searchBoxIsOpen,
     location: store.dumbletour.location,
@@ -12,7 +10,6 @@ const mapStateToProps = (store) => ({
     longitude: store.dumbletour.longitude,
     latitude: store.dumbletour.latitude
 });
-
 
 const mapDispatchToProps = dispatch =>({
     handleKey:(e) => {

@@ -25,14 +25,16 @@ export const updateDepartureDate = (value) => ({
 
 export const submitSearch = () =>{
     return (dispatch, getState) => {
-      const { latitude, longitude, arrivalDate, departureDate} = getState().dumbletour;
+      const { location, latitude, longitude, arrivalDate, departureDate} = getState().dumbletour;
       // console.log(location)
       fetch('/api/search', {
         method: 'POST',
-        header: {'Content-type': 'application/json'},
-        body: JSON.stringify({latitude, longitude, arrivalDate, departureDate})
+        headers: {'Content-type': 'application/json'},
+        body: JSON.stringify({location, latitude, longitude, arrivalDate, departureDate})
       })
-      .then(res => res.json())
+      .then((res) => {
+        console.log(res);
+        return res.json()})
       .then(json => dispatch(receivedResults(json)));
     }
   }             

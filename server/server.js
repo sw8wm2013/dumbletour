@@ -49,7 +49,7 @@ app.get('/', (req, res) => {
 
 
 // Listen for requests on PORT
-app.listen(PORT, () => {
+app.listen( () => {
   // MongoClient.connect(
   //   'mongodb+srv://bleep241:g@teofMlab65@dumblecluster-l56v3.mongodb.net/test?retryWrites=true&w=majority',
   //   { useNewUrlParser: true }, (err, client) => {

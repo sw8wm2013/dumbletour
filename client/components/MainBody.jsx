@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import SearchModal from './SearchModal.jsx'
 
 const mapStateToProps = (store) => {
     return {
@@ -12,11 +13,20 @@ const mapDispatchToProps = dispatch =>({
 });
 
 
-const MainBody = props =>(
-    <div>
-        <h1>Hello World</h1>
-    </div>
-)
+
+class MainBody extends Component{
+    constructor(props){
+        super(props);
+    }
+
+    render(){
+        return(
+        <Fragment>
+            <SearchModal />
+        </Fragment>
+        )
+    }
+ }
 
 
 

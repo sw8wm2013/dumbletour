@@ -7,7 +7,7 @@ const authRoutes = require('./routes/auth-routes');
 const profileRoutes = require('./routes/profile-routes');
 const passportSetup = require('./oauth-config/passport-setup');
 const authKeys = require('./oauth-config/auth-keys');
-const {MongoClient} = require("mongodb");
+const { MongoClient } = require('mongodb');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 
@@ -50,7 +50,7 @@ app.post('/api/search', (req, res) => {
   console.log(req.body);
   res.status(200);
   res.setHeader('Content-type', 'application/json');
-  res.json({ hi: 'hello' });
+  res.json([{ name: 'museum of redux' }, { name: 'jake tells jokes' }, { name: 'lion king walking tour' }]);
 });
 
 app.get('/', (req, res) => {

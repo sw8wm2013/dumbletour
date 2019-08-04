@@ -1,44 +1,45 @@
-import * as types from './actionTypes'
+import * as types from './actionTypes';
 
 export const startRegistration = () => ({
-    type: types.START_REGISTRATION
-  });
+  type: types.START_REGISTRATION,
+});
 
-export const completeRegistration = () =>({
-    type: types.COMPLETE_REGISTRATION
-})
+export const completeRegistration = () => ({
+  type: types.COMPLETE_REGISTRATION,
+});
 
-export const updateLocation = (value) => ({
+export const updateLocation = value => ({
   type: types.UPDATE_LOCATION,
-  payload: value
-})
+  payload: value,
+});
 
-export const updateArrivalDate = (value) => ({
+export const updateArrivalDate = value => ({
   type: types.UPDATE_ARRIVAL_DATE,
-  payload: value
-})
+  payload: value,
+});
 
-export const updateDepartureDate = (value) => ({
+export const updateDepartureDate = value => ({
   type: types.UPDATE_DEPARTURE_DATE,
-  payload: value
-})
+  payload: value,
+});
 
-export const submitSearch = () =>{
-    return (dispatch, getState) => {
-      const { location, latitude, longitude, arrivalDate, departureDate} = getState().dumbletour;
-      // console.log(location)
-      fetch('/api/search', {
-        method: 'POST',
-        headers: {'Content-type': 'application/json'},
-        body: JSON.stringify({location, latitude, longitude, arrivalDate, departureDate})
-      })
-      .then((res) => {
-        console.log(res);
-        return res.json()})
-      .then(json => dispatch(receivedResults(json)));
-    }
-  }             
+export const searchResults = results => ({
+  type: types.PROCESS_SEARCH_RESULTS,
+  payload: results,
+});
 
+export const submitSearch = () => (dispatch, getState) => {
+  const {
+    location, latitude, longitude, arrivalDate, departureDate,
+  } = getState().dumbletour;
 
-
-
+  fetch('/api/search', {
+    method: 'POST',
+    headers: { 'Content-type': 'application/json' },
+    body: JSON.stringify({
+      location, latitude, longitude, arrivalDate, departureDate,
+    }),
+  })
+    .then(res => res.json())
+    .then(json => dispatch(searchResults(json)));
+};

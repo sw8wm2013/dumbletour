@@ -27,7 +27,8 @@ const mapDispatchToProps = dispatch =>({
     },
 
     submitSearch: (e) => {
-        dispatch(actions.submitSearch()) 
+        e.preventDefault();
+        dispatch(actions.submitSearch());
     }
 })   
 
@@ -51,14 +52,14 @@ class SearchModal extends Component {
     render(){
         console.log('props in searchmodal:', this.props)
         return (
-            <div>
-                 <form>
-                    <input type='text' value={this.props.location} onChange={(e) => this.props.handleKey(e)} placeholder='Where do you want to go?'></input>
-                    When do you want to arrive? <input type='date' value={this.props.arrivalDate} onChange={(e) => this.props.handleArrivalDate(e)}></input>
-                    When do you want to leave? <input type='date'value={this.props.departureDate} onChange={(e) => this.props.handleDepartureDate(e)}></input>
-                    {/* {this.props.searchBoxIsOpen ? <button onClick={()=> this.props.submitSearch()}>Find me the cool shit!</button> : null} */}
-                    {this.props.searchBoxIsOpen ? <button onClick={()=> this.testBasicSearch()}>Find me the cool shit!</button> : null}
-                </form>
+        <div>
+          <form>
+            <input type='text' value={this.props.location} onChange={(e) => this.props.handleKey(e)} placeholder='Where do you want to go?'></input>
+            When do you want to arrive? <input type='date' value={this.props.arrivalDate} onChange={(e) => this.props.handleArrivalDate(e)}></input>
+            When do you want to leave? <input type='date'value={this.props.departureDate} onChange={(e) => this.props.handleDepartureDate(e)}></input>
+            {this.props.searchBoxIsOpen ? <button onClick={(e)=> this.props.submitSearch(e)}>Find me the cool shit!</button> : null}
+            {/* {this.props.searchBoxIsOpen ? <button onClick={()=> this.testBasicSearch()}>Find me the cool shit!</button> : null} */}
+          </form>
         </div>
         )
     }

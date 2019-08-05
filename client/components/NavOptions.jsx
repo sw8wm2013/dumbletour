@@ -6,6 +6,7 @@ import * as actions from '../actions/actions.js';
 
 const mapStateToProps = store => ({
     registrationIsOpen: store.dumbletour.registrationIsOpen,
+    itinerary: store.dumbletour.itinerary
 });
 
 
@@ -23,6 +24,8 @@ class NavOptions extends Component{
     render(){
         return(
             <Fragment>
+            {Object.keys(this.props.itinerary).length !== undefined ? 
+            <div>{Object.keys(this.props.itinerary).length}</div> : null}
             {/* <Register startRegistration={this.props.startRegistration} completeRegistration={this.props.completeRegistration}/> */}
             {/* <Login/>
             <Itinerary/>

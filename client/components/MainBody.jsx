@@ -10,7 +10,7 @@ const mapStateToProps = (store) => ({
   arrivalDate: store.dumbletour.arrivalDate,
   departureDate: store.dumbletour.departureDate,
   searchResults: store.dumbletour.searchResults,
-});
+}); 
 
 const mapDispatchToProps = dispatch =>({
   addToItineraryRequest: (id) => {

@@ -78,7 +78,7 @@ const dumbletourReducer = (state = initialState, action) => {
       itinerary[id] = { date: undefined, time: undefined };
       return {
         ...state,
-        itinerary,
+        itinerary: { ...itinerary },
       };
     }
 

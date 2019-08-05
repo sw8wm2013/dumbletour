@@ -3,11 +3,9 @@ import { connect } from 'react-redux';
 import NavOptions from './NavOptions.jsx';
 
 
-const mapStateToProps = (store) => {
-    return {
-
-    }
-};
+const mapStateToProps = (store) => ({
+      
+});
 
 const mapDispatchToProps = dispatch =>({
 
@@ -18,6 +16,7 @@ const NavBar = props =>(
     <Fragment>
         <h1 id='logo'>Dumbletour</h1>
         <NavOptions/>
+
     </Fragment>
 )
 

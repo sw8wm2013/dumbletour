@@ -1,5 +1,4 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -11,8 +10,10 @@ module.exports = {
   devServer: {
     publicPath: '/build/',
     proxy: {
-      '/api': 'http://localhost:3000'
-    }
+      '/api': 'http://localhost:3000',
+      '/auth': 'http://localhost:3000',
+      secure: false,
+    },
   },
   module: {
     rules: [
@@ -21,13 +22,13 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-env', '@babel/preset-react']
-        }
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+        },
       },
       {
         test: /\.(s*)css$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
-      }
-    ]
-  }
-}
+      },
+    ],
+  },
+};

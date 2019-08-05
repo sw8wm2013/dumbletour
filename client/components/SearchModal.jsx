@@ -2,8 +2,6 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/actions.js';
 
-
-
 const mapStateToProps = (store) => ({
     searchBoxIsOpen: store.dumbletour.searchBoxIsOpen,
     location: store.dumbletour.location,
@@ -12,7 +10,6 @@ const mapStateToProps = (store) => ({
     longitude: store.dumbletour.longitude,
     latitude: store.dumbletour.latitude
 });
-
 
 const mapDispatchToProps = dispatch =>({
     handleKey:(e) => {
@@ -27,7 +24,8 @@ const mapDispatchToProps = dispatch =>({
     },
 
     submitSearch: (e) => {
-        dispatch(actions.submitSearch()) 
+        e.preventDefault();
+        dispatch(actions.submitSearch());
     }
 })   
 
@@ -37,16 +35,24 @@ class SearchModal extends Component {
     }
 
     render(){
-        console.log('props in searchmodal:', this.props)
         return (
-            <div>
-                 <form>
-                    <input type='text' value={this.props.location} onChange={(e) => this.props.handleKey(e)} placeholder='Where do you want to go?'></input>
-                    When do you want to arrive? <input type='date' value={this.props.arrivalDate} onChange={(e) => this.props.handleArrivalDate(e)}></input>
-                    When do you want to leave? <input type='date'value={this.props.departureDate} onChange={(e) => this.props.handleDepartureDate(e)}></input>
-                    {this.props.searchBoxIsOpen ? <button onClick={()=> this.props.submitSearch()}>Find me the cool shit!</button> : null}
-                </form>
-        </div>
+        <span className="search-modal">
+          <form className="search-form">
+            <label>
+              Experience destination ?
+            <input type='text' value={this.props.location} onChange={(e) => this.props.handleKey(e)} placeholder='City'></input>
+            </label>
+            <label>
+            When are you going?
+            <input type='date' value={this.props.arrivalDate} onChange={(e) => this.props.handleArrivalDate(e)}></input>
+            </label>
+            <label>
+            Coming back?
+            <input type='date'value={this.props.departureDate} onChange={(e) => this.props.handleDepartureDate(e)}></input>
+            </label>
+            <button onClick={(e)=> this.props.submitSearch(e)}>Accio Adventure!</button>
+          </form>
+        </span>
         )
     }
 }

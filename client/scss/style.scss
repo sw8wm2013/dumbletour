@@ -1,0 +1,214 @@
+/* reset default styles */
+@import url('https://fonts.googleapis.com/css?family=Cabin|Oswald&display=swap');
+
+$curve-borders: 5px;
+$primary-black: rgb(77, 77, 77);
+$secondary-black: lighten($primary-black, 10%);
+$light-grey: lighten($primary-black, 60%);
+$super-light-grey: rgb(201, 69, 69);
+$btn-color: rgb(115, 216, 203);
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-bar{
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  top: 0px;
+  z-index: 2;
+  padding: 10px;
+  background-color:blue;
+  height: 100px;
+}
+
+.search-modal{
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  width: 400px;
+  padding-top: 20px;
+  padding-left: 25px;
+  background-color: yellow;
+  font-size: 1.5rem;
+  input {
+    margin-top: 10px;
+    width: inherit;
+    font-size: 1.3rem;
+    width: 350px;
+    height: 50px;
+  }
+  button {
+    font-size: 1.6rem;
+    width: 350px;
+    height: 60px;
+  }
+}
+
+.main-body{
+  width: 100%;
+}
+
+.search-form{
+  margin-top: 100px;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.result-cards{
+  margin-top: 150px;
+  background-color: green;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  justify-items: center;
+  grid-column-gap: 25px;
+  grid-row-gap: 25px;
+}
+
+.result-card{
+  position: relative;
+  border: solid 2px black;
+  padding:20px;
+  img{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+.add-button{
+  position: relative;
+  background-color: red;
+  top: -120px;
+  right: -320px;
+}
+
+header {
+ height: 100px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+body {
+  background-color: $super-light-grey;
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* cards container */
+.charContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  /* grid-auto-flow: column; */
+}
+
+/* character card container */
+.charCard {
+  background-color:white;
+  border: 1px solid $light-grey;
+  margin: 5px;
+  box-shadow: 5px 5px 5px 2px $light-grey;
+  padding-left: 5px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  border-radius: $curve-borders;
+  a{
+    width: 48%;
+  }
+}
+
+/* character card header */
+.charHeadContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  font-family: 'Oswald', sans-serif;
+  justify-content: space-between;
+
+  div {
+    /* width: 100%; */
+  }
+
+
+ h2 {
+    color: $primary-black;
+    margin-bottom: 0;
+  }
+
+  .favIcon {
+    color: $secondary-black;
+    &:hover{
+      color: seagreen;
+    }
+
+  }
+}
+
+/* character additional details - films */
+.charAddlDetail {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: 'Cabin', sans-serif;
+  // color: $secondary-black;
+}
+
+.charFilmsList {
+  margin-top: 0;
+}
+
+.charFilm {
+  margin-left: 0.5rem;
+}
+
+.charDetailsList{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: $secondary-black;
+  li{ 
+    margin:5px;
+  
+}
+}
+
+.charBtnOptions {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.primaryButton{
+  border: 1px solid transparent;
+  border-radius: $curve-borders;
+  background-color: $btn-color;
+  color: white;
+  width: 48%;
+  height: 30px;
+  &:hover{
+    border: 1px solid $btn-color  ;
+    background-color: white;
+    color: $btn-color;
+  }
+}
+
+.secondaryButton{
+  color: lighten($btn-color, 20%);
+  border: 1px solid $btn-color;
+  border-radius: 5px;
+  width: 100%;
+  height: 30px;
+  &:hover{
+    color: $btn-color;
+  }
+}
+
+

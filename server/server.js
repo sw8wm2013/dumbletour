@@ -39,10 +39,10 @@ app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
 // TEMPORARY OAUTH TEST
 // view engine
-// app.set('view engine', 'ejs');
-// app.get('/', (req, res) => {
-//   res.render('./../client/auth-test.ejs');
-// });
+app.set('view engine', 'ejs');
+app.get('/', (req, res) => {
+  res.render('./../client/auth-test.ejs');
+});
 
 
 // TEMPORARY ROUTES START

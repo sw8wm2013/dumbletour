@@ -21,6 +21,7 @@ passport.use(
     clientSecret: authKeys.google.clientSecret,
   }, (accessToken, refreshToken, profile, done) => {
     // passport callback function
+    //console.log(`Access token inside new Google strategy ${accessToken}`)
     console.log('passport cb function fired');
     console.log(profile);
 

@@ -65,14 +65,14 @@ app.post('/api/search', (req, res) => {
 });
 
 app.put('/api/itinerary/add', (req, res) => {
-  const { id, user } = req.query;
+  const { id, user } = req.body;
   console.log(`adding id ${id} to ${user}'s itineray`);
   res.status(200);
   res.end();
 });
 
 app.put('/api/itinerary/remove', (req, res) => {
-  const { id, user } = req.query;
+  const { id, user } = req.body;
   console.log(`removing id ${id} from ${user}'s itineray`);
   res.status(200);
   res.end();

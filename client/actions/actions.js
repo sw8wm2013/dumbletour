@@ -28,6 +28,11 @@ export const searchResults = results => ({
   payload: results,
 });
 
+export const addToItinerary = addedItem => ({
+  type: types.ADD_TO_ITINERARY,
+  payload: addedItem,
+});
+
 // thunk that handles search request
 export const submitSearch = () => (dispatch, getState) => {
   const {
@@ -43,4 +48,18 @@ export const submitSearch = () => (dispatch, getState) => {
   })
     .then(res => res.json())
     .then(json => dispatch(searchResults(json)));
+};
+
+// thunk that adds itinerary item
+export const addToItineraryRequest = id => (dispatch, getState) => {
+  const { user } = getState().dumbletour;
+
+  fetch('/api/itinerary/add', {
+    method: 'PUT',
+    headers: { 'Content-type': 'application/json' },
+    body: JSON.stringify({
+      user, id,
+    }),
+  })
+    .then(() => dispatch(addToItinerary(id)));
 };

@@ -1,6 +1,7 @@
 import * as types from '../actions/actionTypes';
 
 const initialState = {
+  user: 'Samantha W.',
   registrationIsOpen: false,
   searchBoxIsOpen: true,
   location: '',
@@ -9,6 +10,7 @@ const initialState = {
   arrivalDate: '',
   departureDate: '',
   searchResults: [],
+  itinerary: {},
 };
 
 const dumbletourReducer = (state = initialState, action) => {
@@ -67,6 +69,16 @@ const dumbletourReducer = (state = initialState, action) => {
         ...state,
         searchResults: [...action.payload],
         searchBoxIsOpen,
+      };
+    }
+
+    case types.ADD_TO_ITINERARY: {
+      const id = action.payload;
+      const { itinerary } = state;
+      itinerary[id] = { date: undefined, time: undefined };
+      return {
+        ...state,
+        itinerary,
       };
     }
 

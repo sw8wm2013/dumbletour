@@ -36,16 +36,23 @@ class SearchModal extends Component {
 
     render(){
         return (
-        <div>
-          {this.props.searchBoxIsOpen ? 
-          <form>
-            <input type='text' value={this.props.location} onChange={(e) => this.props.handleKey(e)} placeholder='Where do you want to go?'></input>
-            When do you want to arrive? <input type='date' value={this.props.arrivalDate} onChange={(e) => this.props.handleArrivalDate(e)}></input>
-            When do you want to leave? <input type='date'value={this.props.departureDate} onChange={(e) => this.props.handleDepartureDate(e)}></input>
+        <span className="search-modal">
+          <form className="search-form">
+            <label>
+              Experience destination ?
+            <input type='text' value={this.props.location} onChange={(e) => this.props.handleKey(e)} placeholder='City'></input>
+            </label>
+            <label>
+            When are you going?
+            <input type='date' value={this.props.arrivalDate} onChange={(e) => this.props.handleArrivalDate(e)}></input>
+            </label>
+            <label>
+            Coming back?
+            <input type='date'value={this.props.departureDate} onChange={(e) => this.props.handleDepartureDate(e)}></input>
+            </label>
             <button onClick={(e)=> this.props.submitSearch(e)}>Find me the cool shit!</button>
           </form>
-          : null}
-        </div>
+        </span>
         )
     }
 }

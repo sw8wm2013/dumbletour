@@ -49,7 +49,7 @@ app.use('/profile', profileRoutes);
 app.post('/api/search', (req, res) => {
   const stubResults = [];
   const resultTemplate = {
-    imgUrl: 'http://via.placeholder.com/300x300',
+    imgUrl: 'http://via.placeholder.com/350x460',
     price: '50.99',
     www: 'www.tourists-are-us.com',
     ig: '#livelaughlove',
@@ -84,7 +84,7 @@ app.get('/api/itinerary/get', (req, res) => {
   const { user } = req.query;
   const stubResults = [];
   const resultTemplate = {
-    imgUrl: 'http://via.placeholder.com/300x300',
+    imgUrl: 'http://via.placeholder.com/300x460',
     price: '50.99',
     www: 'www.tourists-are-us.com',
     ig: '#livelaughlove',

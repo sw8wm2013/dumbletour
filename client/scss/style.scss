@@ -10,6 +10,83 @@ $btn-color: rgb(115, 216, 203);
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-bar{
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  top: 0px;
+  z-index: 2;
+  padding: 10px;
+  background-color:blue;
+  height: 100px;
+}
+
+.search-modal{
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  width: 400px;
+  padding-top: 20px;
+  padding-left: 25px;
+  background-color: yellow;
+  font-size: 1.5rem;
+  input {
+    margin-top: 10px;
+    width: inherit;
+    font-size: 1.3rem;
+    width: 350px;
+    height: 50px;
+  }
+  button {
+    font-size: 1.6rem;
+    width: 350px;
+    height: 60px;
+  }
+}
+
+.main-body{
+  width: 100%;
+}
+
+.search-form{
+  margin-top: 100px;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.result-cards{
+  margin-top: 150px;
+  background-color: green;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  justify-items: center;
+  grid-column-gap: 25px;
+  grid-row-gap: 25px;
+}
+
+.result-card{
+  position: relative;
+  border: solid 2px black;
+  padding:20px;
+  img{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+.add-button{
+  position: relative;
+  background-color: red;
+  top: -120px;
+  right: -320px;
 }
 
 header {

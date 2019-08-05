@@ -33,11 +33,15 @@ class MainBody extends Component{
                               id={r.id}
                               addToItinerary={this.props.addToItineraryRequest}/>;});
         return(
-        <div>
+        <div className="main-body">
+          {this.props.searchBoxIsOpen ? 
           <Fragment>
             <SearchModal />
           </Fragment>
+          : null}
+          <section className="result-cards">
           {resultCards}
+          </section>
         </div>
         )
     }
